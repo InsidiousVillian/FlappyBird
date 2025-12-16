@@ -34,6 +34,9 @@ void UHealth::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponen
 
 void UHealth::TakeDamage(float damage)
 {
+	CurrentHealth -= damage;
+	
 	UE_LOG(LogTemp, Warning, TEXT("UHealth::TakeDamage() called with damage: %f"), damage);
+	UE_LOG(LogTemp, Warning, TEXT("Current Health: %f"), CurrentHealth);
 }
 
