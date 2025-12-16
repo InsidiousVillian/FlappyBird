@@ -16,6 +16,7 @@ void AObstacles::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	UE_LOG(LogTemp, Warning, TEXT("AObstacles::BeginPlay()")); 
 }
 
 // Called every frame
@@ -27,9 +28,11 @@ void AObstacles::Tick(float DeltaTime)
 
 void AObstacles::OnHitPlayer(ACharacter* PlayerRef)
 {
-	if (!PlayerRef) { return; }
 	
-	UE_LOG(LogTemp, Warning, TEXT("Player Hit Obstacle"));
+	if (!PlayerRef) {return; }
+	
+		UE_LOG(LogTemp, Warning, TEXT("Player Hit Obstacle"));
+	
 	
 	Destroy(); // Destroy the obstacle upon collision with the player
 }
