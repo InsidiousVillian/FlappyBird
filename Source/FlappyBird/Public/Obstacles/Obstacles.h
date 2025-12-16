@@ -11,6 +11,11 @@ class FLAPPYBIRD_API AObstacles : public AActor
 {
 	GENERATED_BODY()
 	
+private:
+	UPROPERTY()
+	UHealth* HealthComponent;
+	
+	
 public:	
 	// Sets default values for this actor's properties
 	AObstacles();
