@@ -41,6 +41,8 @@ public:
 	
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	FVector NewLocation;
+	
+	FVector Velocity;
 
 protected:
 	// Called when the game starts
@@ -57,9 +59,8 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	
 	UFUNCTION(BlueprintCallable)
-	void Flap();
+	void Flap(float DeltaTime);
 	
-	UFUNCTION(BlueprintCallable)
 	void Move(float DeltaTime);
 	
 };

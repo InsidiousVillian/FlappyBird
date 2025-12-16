@@ -3,12 +3,22 @@
 #include "Characters/MainPlayer.h"
 #include "Components/MovementComp.h"
 
-void UMovementComp::Flap()
+void UMovementComp::Flap(float DeltaTime)
 {
 	
 	UE_LOG(LogTemp, Warning, TEXT("MovementComp Flap"));
 	
 	//TODO : Add upward force to the player character when flap is called
+	
+	if (!OwnerActor) { return; }
+	
+	Velocity.Z = FlapStrength;
+	
+	CurrentLocation = OwnerActor->GetActorLocation();
+	
+	NewLocation = CurrentLocation + FVector(0,0, FlapStrength);
+	
+	OwnerActor->SetActorLocation(NewLocation);
 	
 }
 
@@ -56,6 +66,6 @@ void UMovementComp::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	Move(DeltaTime);
+	Move(DeltaTime); // Call Move function every tick
 }
 
