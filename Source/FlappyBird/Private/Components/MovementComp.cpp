@@ -9,13 +9,23 @@ void UMovementComp::Flap()
 	UE_LOG(LogTemp, Warning, TEXT("MovementComp Flap"));
 	
 	//TODO : Add upward force to the player character when flap is called
+	
 }
 
-void UMovementComp::Move()
+void UMovementComp::Move(float DeltaTime)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Moving Player"));
 	
 	//TODO: Add forward movement on the y axis to the player character when move is called
+	
+	if (!OwnerActor) { return; }
+	
+	
+	CurrentLocation = OwnerActor->GetActorLocation();
+	
+	NewLocation = CurrentLocation + FVector(Speed * DeltaTime,0, 0);
+	
+	OwnerActor->SetActorLocation(NewLocation);
 }
 
 
@@ -36,6 +46,8 @@ void UMovementComp::BeginPlay()
 
 	PlayerRef = Cast<ACharacter>(GetOwner());
 	
+	OwnerActor = GetOwner();
+	
 }
 
 
@@ -44,6 +56,6 @@ void UMovementComp::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	Move(DeltaTime);
 }
 

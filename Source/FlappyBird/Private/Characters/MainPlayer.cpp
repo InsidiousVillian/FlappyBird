@@ -13,6 +13,9 @@ AMainPlayer::AMainPlayer()
 	CollisionComp = CreateDefaultSubobject<UCollisionComponent>(TEXT("Collision Component"));
 	CameraComp = CreateDefaultSubobject<UCameraComp>(TEXT("Camera Component"));
 	MovementComp = CreateDefaultSubobject<UMovementComp>(TEXT("Movement Component"));
+	
+	SetActorLocation(FVector(0, 0, 0));
+	SetActorRotation(FRotator(0, 0, 0));
 }
 
 // Called when the game starts or when spawned

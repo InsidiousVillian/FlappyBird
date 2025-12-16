@@ -20,6 +20,9 @@ class FLAPPYBIRD_API UMovementComp : public UActorComponent
 	
 	UPROPERTY()
 	ACharacter* PlayerRef; 
+	
+	UPROPERTY(VisibleAnywhere)
+	AActor* OwnerActor;
 public:	
 	// Sets default values for this component's properties
 	UMovementComp();
@@ -32,6 +35,12 @@ public:
 	
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float FallSpeed { 100.0f};
+	
+	UPROPERTY(EditAnywhere, Category = "Movement");
+	FVector CurrentLocation;
+	
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	FVector NewLocation;
 
 protected:
 	// Called when the game starts
@@ -51,6 +60,6 @@ public:
 	void Flap();
 	
 	UFUNCTION(BlueprintCallable)
-	void Move();
+	void Move(float DeltaTime);
 	
 };
