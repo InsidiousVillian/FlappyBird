@@ -27,6 +27,10 @@ void AObstacles::Tick(float DeltaTime)
 
 void AObstacles::OnHitPlayer(ACharacter* PlayerRef)
 {
+	if (!PlayerRef) { return; }
+	
 	UE_LOG(LogTemp, Warning, TEXT("Player Hit Obstacle"));
+	
+	Destroy(); // Destroy the obstacle upon collision with the player
 }
 
