@@ -5,7 +5,6 @@
 
 void UMovementComp::Flap()
 {
-	if (!PlayerRef) { return;}
 	
 	UE_LOG(LogTemp, Warning, TEXT("MovementComp Flap"));
 	
