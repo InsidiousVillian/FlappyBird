@@ -4,12 +4,28 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/MovementComp.h"
+#include "Components/Health.h"
+#include "Components/CollisionComponent.h"
+#include "Components/CameraComp.h"
 #include "MainPlayer.generated.h"
 
 UCLASS()
 class FLAPPYBIRD_API AMainPlayer : public ACharacter
 {
 	GENERATED_BODY()
+	
+	UPROPERTY()
+	UMovementComp* MovementComp;
+	
+	UPROPERTY()
+	UHealth* HealthComp;
+	
+	UPROPERTY()
+	UCollisionComponent* CollisionComp;
+	
+	UPROPERTY()
+	UCameraComp* CameraComp;
 
 public:
 	// Sets default values for this character's properties
