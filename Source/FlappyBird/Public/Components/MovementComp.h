@@ -17,7 +17,9 @@ class FLAPPYBIRD_API UMovementComp : public UActorComponent
 	
 	UPROPERTY(VisibleAnywhere, Category = "Checks")
 	bool bIsFalling { false };
-
+	
+	UPROPERTY()
+	ACharacter* PlayerRef; 
 public:	
 	// Sets default values for this component's properties
 	UMovementComp();
@@ -44,6 +46,11 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-		
+	
+	UFUNCTION(BlueprintCallable)
+	void Flap();
+	
+	UFUNCTION(BlueprintCallable)
+	void Move();
+	
 };

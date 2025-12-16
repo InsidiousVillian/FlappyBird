@@ -14,22 +14,22 @@ UCLASS()
 class FLAPPYBIRD_API AMainPlayer : public ACharacter
 {
 	GENERATED_BODY()
-	
-	UPROPERTY()
-	UMovementComp* MovementComp;
-	
-	UPROPERTY()
-	UHealth* HealthComp;
-	
-	UPROPERTY()
-	UCollisionComponent* CollisionComp;
-	
-	UPROPERTY()
-	UCameraComp* CameraComp;
 
 public:
 	// Sets default values for this character's properties
 	AMainPlayer();
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UMovementComp* MovementComp;
+                  	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UHealth* HealthComp;
+                  	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UCollisionComponent* CollisionComp;
+                  	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UCameraComp* CameraComp;
 
 protected:
 	// Called when the game starts or when spawned
